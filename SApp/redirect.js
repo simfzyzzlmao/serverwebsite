@@ -9,6 +9,6 @@ function finish() {
     }
     else
     {
-        alert('You are gay.')
+        alert('Miss mona?')
     }
 }
