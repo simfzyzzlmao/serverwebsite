@@ -1,0 +1,1 @@
+There is no Terms and Condition Lmao, thanks for reading this.
