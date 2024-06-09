@@ -1,0 +1,97 @@
+h1
+{
+    color:rgb(6, 80, 240);
+}
+input
+{
+    width:30px;
+    height:30px;
+}
+body
+{
+    background-color: cadetblue;
+    padding-left:5px;
+    padding-right:5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.silver
+{
+    background-color: azure;
+    text-align: center;
+    border-radius: 10px;
+    border: grey solid 5px;
+}
+.silver h2
+{
+    color:darkgray;
+}
+.silver h3
+{
+    color:gray;
+    font-weight:500;
+}
+.silver p
+{
+    color:lightslategray;
+    font-weight: 900;
+}
+.gold
+{
+    background-color:rgb(252, 207, 92);
+    text-align:center;
+    border-radius: 10px;
+    border: rgb(133, 113, 0) solid 5px;
+}
+.gold h2
+{
+    color:rgb(133, 108, 0)
+}
+.gold h3
+{
+    color:rgb(139, 139, 0);
+    font-weight:500;
+}
+.gold p
+{
+    color:darkgoldenrod;
+    font-weight: 900;
+}
+.goldex
+{
+    border-radius:10px;
+    text-align:center;
+    background-color:rgb(11, 167, 167);
+    border: rgb(0, 63, 63) solid 5px;
+}
+.goldex h2
+{
+    color:goldenrod;
+}
+.goldex p
+{
+    color:cyan;
+    font-weight: 900;
+}
+.fulltime
+{
+    text-align:center;
+    background-color:lightcoral;
+    border-radius:10px;
+    border:crimson solid 5px;
+}
+.fulltime h2
+{
+    color:red;
+}
+button
+{
+    border:black;
+    outline:none;
+    border-radius: 10px;
+    background-color:black;
+    font-size:30px;
+    color:white;
+    align-content: center;
+    width:200px;
+    height:60px;
+}
