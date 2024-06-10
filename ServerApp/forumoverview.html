@@ -97,7 +97,31 @@
     </div>
 
     <script>
+const socket = new WebSocket('ws://localhost:3000');
 
+// Function to handle form submission
+function handleSubmit(event) {
+    event.preventDefault();
+    const nameInput = document.getElementById('nameInput');
+    const name = nameInput.value.trim();
+    const commentInput = document.getElementById('commentInput');
+    const commentText = commentInput.value.trim();
+    if (name !== '' && commentText !== '') {
+        const data = { name, commentText };
+        socket.send(JSON.stringify(data)); // Send comment data to the server
+        nameInput.value = '';
+        commentInput.value = '';
+    }
+}
+
+// WebSocket message event listener
+socket.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+    addComment(data.name, data.commentText);
+};
+
+// Attach event listener to form submission
+document.getElementById('commentForm').addEventListener('submit', handleSubmit);
         // Function to handle form submission
 function handleSubmit(event) {
     event.preventDefault();
