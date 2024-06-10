@@ -1,97 +1,116 @@
-h1
-{
-    color:rgb(6, 80, 240);
-}
-input
-{
-    width:30px;
-    height:30px;
-}
 body
 {
-    background-color: cadetblue;
-    padding-left:5px;
-    padding-right:5px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.silver
-{
-    background-color: azure;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:darkslateblue;
     text-align: center;
-    border-radius: 10px;
-    border: grey solid 5px;
+    align-content: center;
+    align-items: center;
 }
-.silver h2
+a
 {
-    color:darkgray;
+    text-decoration: none;
+    color:darkolivegreen;
 }
-.silver h3
+.offer
 {
-    color:gray;
-    font-weight:500;
+    color:gold;
 }
-.silver p
+div
 {
-    color:lightslategray;
-    font-weight: 900;
+    align-self: center;
+    max-width:200px;
 }
-.gold
+img
 {
-    background-color:rgb(252, 207, 92);
-    text-align:center;
-    border-radius: 10px;
-    border: rgb(133, 113, 0) solid 5px;
+    align-content: flex-start;
+    align-self: auto;
+    width:29px;
+    height:29px;
 }
-.gold h2
+.bronzediv
 {
-    color:rgb(133, 108, 0)
+    background-color:rgb(245, 204, 155);
+    color:orange;
+    border:rgba(216, 141, 1, 0.808) 5px solid;
+    border-radius:10px;
 }
-.gold h3
+.silverdiv
 {
-    color:rgb(139, 139, 0);
-    font-weight:500;
+    background-color:rgb(221, 221, 221);
+    color:black;
+    border:silver 5px solid;
+    border-radius:10px;
 }
-.gold p
+.golddiv
 {
+    background-color:gold;
     color:darkgoldenrod;
-    font-weight: 900;
-}
-.goldex
-{
+    border:rgb(99, 72, 3) 5px solid;
     border-radius:10px;
-    text-align:center;
-    background-color:rgb(11, 167, 167);
-    border: rgb(0, 63, 63) solid 5px;
 }
-.goldex h2
+.diamonddiv
 {
-    color:goldenrod;
-}
-.goldex p
-{
-    color:cyan;
-    font-weight: 900;
-}
-.fulltime
-{
-    text-align:center;
-    background-color:lightcoral;
+    background-color:aqua;
+    color:cornflowerblue;
+    border:rgb(3, 77, 77) 5px solid;
     border-radius:10px;
-    border:crimson solid 5px;
 }
-.fulltime h2
+.special
 {
-    color:red;
+    background-color:rgb(3, 214, 84);
+    color:dodgerblue;
+    border:darkgreen 5px solid;
+    border-radius:10px;
 }
 button
 {
-    border:black;
-    outline:none;
-    border-radius: 10px;
-    background-color:black;
-    font-size:30px;
-    color:white;
-    align-content: center;
     width:200px;
-    height:60px;
+    height:30px;
 }
+.goback
+{
+    border-radius:10px;
+    color:white;
+    background-color:black;
+    padding: 10px;
+    border:black 5px solid;
+}
+button
+{
+    cursor:pointer;
+    box-shadow: none;
+    outline:none;
+    border-radius:10px;
+    background-color:black;
+    color:white;
+    width:200px;
+    height:40px;
+}
+button:active {
+    border-style: outset;
+}
+li
+{
+    font-size:20px;
+    font-weight:600;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
