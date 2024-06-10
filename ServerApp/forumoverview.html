@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Forum</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f3f3f3;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #999;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            padding-top:0;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: calc(50% - 10px);
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #commentsContainer {
+            margin-top: 20px;
+        }
+
+        .comment {
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .comment span {
+            font-weight: bold;
+        }
+
+        .comment-delete {
+            background-color: #d9534f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Public Comment</h1>
+
+        <form id="commentForm">
+            <input type="text" id="nameInput" placeholder="Your Name">
+            <input type="text" id="commentInput" placeholder="Write a comment...">
+            <input type="submit" value="Post">
+        </form>
+
+        <div id="commentsContainer">
+            <!-- Comments will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code remains the same
+        // Function to add a new comment
+        function addComment(name, comment, index) {
+            const commentsContainer = document.getElementById('commentsContainer');
+            const commentElement = document.createElement('div');
+            commentElement.className = 'comment';
+
+            const nameElement = document.createElement('span');
+            nameElement.textContent = name + ': ';
+            commentElement.appendChild(nameElement);
+
+            const commentContent = document.createElement('span');
+            commentContent.textContent = comment;
+            commentContent.className = 'comment-content';
+            commentElement.appendChild(commentContent);
+
+            // Add a delete button for each comment
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.className = 'comment-delete';
+            deleteButton.onclick = () => deleteComment(index);
+
+            commentElement.appendChild(deleteButton);
+            commentsContainer.appendChild(commentElement);
+        }
+
+        // Function to handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const nameInput = document.getElementById('nameInput');
+            const name = nameInput.value.trim();
+            const commentInput = document.getElementById('commentInput');
+            const commentText = commentInput.value.trim();
+            if (name !== '' && commentText !== '') {
+                addComment(name, commentText);
+                saveComment(name, commentText);
+                nameInput.value = '';
+                commentInput.value = '';
+            }
+        }
+
+        // Function to save comment to localStorage
+        function saveComment(name, comment) {
+            let comments = localStorage.getItem('comments');
+            comments = comments ? JSON.parse(comments) : [];
+            comments.push({ name, comment });
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        // Function to delete a comment
+        function deleteComment(index) {
+            // Check if the user is authorized to delete comments (based on console input)
+            const isAdmin = checkAdminAccess();
+
+            if (isAdmin) {
+                let comments = localStorage.getItem('comments');
+                comments = comments ? JSON.parse(comments) : [];
+                comments.splice(index, 1); // Remove the comment at the specified index
+                localStorage.setItem('comments', JSON.stringify(comments));
+
+                // Update the UI by re-rendering the comments
+                renderComments();
+            } else {
+                alert('You are not authorized to delete comments.');
+            }
+        }
+
+        // Function to render comments from localStorage
+        function renderComments() {
+            const commentsContainer = document.getElementById('commentsContainer');
+            commentsContainer.innerHTML = ''; // Clear the existing comments
+
+            let comments = localStorage.getItem('comments');
+            comments = comments ? JSON.parse(comments) : [];
+            comments.forEach((comment, index) => {
+                addComment(comment.name, comment.comment, index); // Add each comment to the UI
+            });
+        }
+
+        // Function to check if the user has admin access (based on console input)
+        function checkAdminAccess() {
+            const isAdmin = prompt('Enter admin code:');
+            return isAdmin === '050424';
+        }
+
+        // Load comments from localStorage when the page loads
+        window.onload = function() {
+            renderComments();
+        };
+
+        // Attach event listener to form submission
+        document.getElementById('commentForm').addEventListener('submit', handleSubmit);
+    </script>
+</body>
+</html>
