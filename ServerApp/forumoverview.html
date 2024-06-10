@@ -97,6 +97,36 @@
     </div>
 
     <script>
+
+        // Function to handle form submission
+function handleSubmit(event) {
+    event.preventDefault();
+    const nameInput = document.getElementById('nameInput');
+    const name = nameInput.value.trim();
+    const commentInput = document.getElementById('commentInput');
+    const commentText = commentInput.value.trim();
+    const adminCode = prompt('Enter admin code:');
+
+    if (adminCode === '050424') {
+        if (name === '' || !isAllowedName(name)) {
+            alert('Invalid name. Please enter a valid name.');
+            return;
+        }
+    }
+
+    if (name !== '' && commentText !== '') {
+        addComment(name, commentText);
+        saveComment(name, commentText);
+        nameInput.value = '';
+        commentInput.value = '';
+    }
+}
+
+// Function to check if the entered name is allowed
+function isAllowedName(name) {
+    const allowedNames = ['simfzyzz', 'jesimiel', 'daelo', 'jesimiel daelo', 'simfzy'];
+    return allowedNames.includes(name.toLowerCase());
+}
         // JavaScript code remains the same
         // Function to add a new comment
         function addComment(name, comment, index) {
