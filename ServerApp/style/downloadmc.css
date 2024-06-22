@@ -24,8 +24,8 @@ body{
 
 .download-btn{
   position: relative;
-  background: #4285F4;
-  color: #fff;
+  background: #ffffff;
+  color: black;
   width: 260px;
   padding: 18px 0;
   text-align: center;
@@ -38,7 +38,8 @@ body{
 }
 
 .download-btn:hover{
-  background: #2874F3;
+  color:white;
+  background: #000102;
 }
 
 .download-btn i{
