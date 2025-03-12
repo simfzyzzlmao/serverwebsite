@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" type="image/png" href="style/picture/PHSMPE.png">
+    <title>Player Report</title>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html" class="active">Home</a>
+        <a href="news.html">News</a>
+        <a href="form.html">Form</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="rules.html">Rules</a>
+        <a href="suggestion.html">Suggestion</a>
+        <a href="playerreport.html">Appeal Report</a>
+        <a href="minigames.html">Mini-Game</a>
+        <a href="https://discord.gg/EqTsprUSbD">Discord</a>
+        <a href="#">Account (Not yet implemented)</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">=</a>
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    <h1>Player Report</h1>
+    <form autocomplete="off" action="https://formspree.io/f/xayrgrwv" method="POST" class="formee">
+        <label>Report Full Name</label>
+    <div>
+        <input id="ReportName"Required type="text" name="ReportName" class="inpute">
+    </div>
+        <label>In-game Name</label>
+    <div>
+        <input id="ReportGamertag"Required type="text" name="ReportGamertag" class="inpute">
+    </div>
+        <label>Reason of Report</label>
+    <div class="expe">
+        <select id="report"required name="Report Reason"  class="rep">
+            <option disabled="disable"Required>Choose</option>
+            <option value="Spam">Spamming</option>
+            <option value="Cheating">Cheating/Hacking</option>
+            <option value="Killing">Killing</option>
+            <option value="Disrespecting">Disrespecting</option>
+            <option value="Notmatured">Not Matured</option>
+            <option value="NSFWBad">18+ Contents</option>
+        </select>
+    </div>
+       <br>
+        <br>
+    <button type="submit" class="butttonbb">Submit Request</button>
+    <p style="font-size:10px; color:white;"><strong>This may take some times. Moderation will notice.</strong></p>
+
+    </form>
+</body>
+</html>
